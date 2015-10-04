@@ -7,7 +7,7 @@ In this game, the computer will randomly select a number between 1 and 100. The 
 ## Requirements
 
 - [x] Use the supplied HTML and CSS.
-- [ ] Write your code in app.js
+- [x] Write your code in app.js
 - [ ] When page loads, Javascript should start a new game.
 - [ ] Create a `newGame()` function that does everything necessary to start a new game.
 - [ ] Use a named function that, when game starts, generates a random number between one and 100.

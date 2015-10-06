@@ -3,6 +3,8 @@ Hot Or Cold Game
 
 In this game, the computer will randomly select a number between 1 and 100. The player then tries to guess the number. The player gets feedback for each guess — **hot** if their guess was close, and **cold** if their guess was far off. Once the correct number is guessed, the player will be notified and given the option to start a new game.
 
+This project can be viewed at [http://somecallmejosh.github.io/hot-or-cold-starter/](http://somecallmejosh.github.io/hot-or-cold-starter/)
+
 
 ## Requirements
 

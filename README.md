@@ -11,9 +11,9 @@ This project can be viewed at [http://somecallmejosh.github.io/hot-or-cold-start
 - [x] Use the supplied HTML and CSS.
 - [x] Write your code in app.js
 - [x] When page loads, Javascript should start a new game.
-- [ ] Create a `newGame()` function that does everything necessary to start a new game.
+- [x] Create a `newGame()` function that does everything necessary to start a new game.
 - [x] Use a named function that, when game starts, generates a random number between one and 100.
-- [ ] Try to start a new game without refreshing or reloading the page (By winning?)
+- [x] Try to start a new game without refreshing or reloading the page
 - [x] Use a named function to provide user with feedback for each guess. 
   - [x] Too low
   - [x] Too High

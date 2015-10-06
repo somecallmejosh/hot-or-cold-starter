@@ -18,7 +18,7 @@ $(document).ready(function(){
       var logThis = function(value) {
         // Set a variable that allows console.log debugging to be 
         // toggled on or of in the console.
-        var debug = true;
+        var debug = false;
         if (debug) {
           console.log(value);
         }
@@ -29,21 +29,31 @@ $(document).ready(function(){
         $('#userGuess').val("").focus();
       }
 
+    
+
     //---------------------------
     // Game Functions
     //---------------------------
+    var setInitialState = function(){
+      $("#guessList").find("li").remove();
+      $("#userGuess").val("");
+      $("#feedback").html("Make Your Guess!");
+      $('#count').html("0");
+      randNumber = randomNumber();
+    }
+
     var newGame = function(){
       // New Game on page load
+      setInitialState();
       formFocus();
-      randomNumber();
       userGuess();
-      //accuracyFeedback();
     };
 
     var randomNumber = function(){
       // Generate a random number between 1 and 100
       var randomNumber = Math.floor(Math.random() * (100 -1) + 1);
-      logThis(randomNumber);
+      logThis("This is the random number: " + randomNumber);
+      return randomNumber;
     };
 
     var temperatureFeedback = function(randomNumber, userGuess){
@@ -72,7 +82,7 @@ $(document).ready(function(){
           $("<li>" + userGuessValue + "</li>").appendTo('#guessList');
           $('#count').html(userGuessCount++);
           formFocus(); 
-          return userGuessValue;
+          accuracyFeedback(userGuessValue);
         } else {
           logThis("Please enter a number between 1 and 100");
           alert("Sorry, that didn't meet the number requirements. Please enter a number between 1 and 100.");
@@ -81,24 +91,27 @@ $(document).ready(function(){
       });
     }
 
-    var accuracyFeedback = function(){
-      // compare user guess to random number
-      logThis("random number: " + randomNumber() + " || user guess: " + userGuess());
-      // if user number is higher than randomNumber
-        // return "Too High"
-        // else if user number is lower than randomNumber
-          // return "Too Low"
-        // else
-          // return "Correct Guess"
+    var accuracyFeedback = function(guess){
+      var feedbackContainer = $("#feedback");
+      if(guess > randNumber){
+        feedbackContainer.html("Too High");
+        logThis("Too High");
+      } else if (guess < randNumber) {
+        feedbackContainer.html("Too Low");
+        logThis("Too Low");
+      } else {
+        feedbackContainer.html("That is Correct!");
+        logThis("Correct Guess");
+      }
     };
 
     //---------------------------
     // Game Instantiation
     //---------------------------
+      newGame();
       $('.new').on("click", function(){
         newGame();
       });
-      newGame();
 });
 
 

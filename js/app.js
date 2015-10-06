@@ -56,33 +56,19 @@ $(document).ready(function(){
       return randomNumber;
     };
 
-    var temperatureFeedback = function(randomNumber, userGuess){
-      // Compare user guess to random number
-      // if the absolute value of randomNumber - userGuess is > 0
-        // if the absolute value of randomNumber - userGuess > 40 
-          // return "Ice Cold"
-          // else if the value is >=30 && <40 
-            // return "Cold"
-          // else if the value is >=20 && <30
-            // return "Warm"
-          // else if the value is >=10 && <20
-            // return "Hot"
-          // else
-          // return "Very Hot"
-    };
-
     var userGuess = function(){
-      var userGuessCount = 1;
+      var userGuessCount = 1,
+          feedbackContainer = $("#feedback");
       $('#guessButton').on("click", function(e){
         e.preventDefault();
-        var userGuess = $('#userGuess'),
-            userGuessValue = parseInt(userGuess.val());
+        var userGuessValue = parseInt($('#userGuess').val()),
+            feedbackContainer = $("#feedback");
         logThis(userGuessCount);
         if (userGuessValue > 0 && userGuessValue <= 100) {
           $("<li>" + userGuessValue + "</li>").appendTo('#guessList');
           $('#count').html(userGuessCount++);
           formFocus(); 
-          accuracyFeedback(userGuessValue);
+          feedbackContainer.html(accuracyFeedback(userGuessValue));
         } else {
           logThis("Please enter a number between 1 and 100");
           alert("Sorry, that didn't meet the number requirements. Please enter a number between 1 and 100.");
@@ -92,17 +78,35 @@ $(document).ready(function(){
     }
 
     var accuracyFeedback = function(guess){
-      var feedbackContainer = $("#feedback");
       if(guess > randNumber){
-        feedbackContainer.html("Too High");
+        return "Too High";
         logThis("Too High");
       } else if (guess < randNumber) {
-        feedbackContainer.html("Too Low");
+        return "Too Low";
         logThis("Too Low");
       } else {
-        feedbackContainer.html("That is Correct!");
+        return "That is Correct!";
         logThis("Correct Guess");
       }
+    };
+
+    var temperatureFeedback = function(guess){
+      // var absoluteValue = Math.abs(randNumber - guess);
+      // if (absoluteValue > 50) {
+      //   return "Ice Cold";
+      // } else if (absoluteValue > 40 ){
+      //   return "Cold";
+      // } else if (absolteValue > 30) {
+      //   return "Warm";
+      // } else if (absoluteValue > 20){
+      //   return "Hot";
+      // } else if (absoluteValue > 10) {
+      //   return "Very Hot";
+      // } else if (abolusteValue > 0) {
+      //   return "Burning Up!";
+      // } else {
+      //   return "On Fire!"
+      // }
     };
 
     //---------------------------

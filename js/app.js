@@ -59,8 +59,7 @@ $(document).ready(function(){
     var userGuess = function(){
       var userGuessCount = 1,
           feedbackContainer = $("#feedback");
-      $('#guessButton').on("click", function(e){
-        e.preventDefault();
+      $('#guessButton').unbind().click(function(){
         var userGuessValue = parseInt($('#userGuess').val()),
             feedbackContainer = $("#feedback");
         logThis(userGuessCount);

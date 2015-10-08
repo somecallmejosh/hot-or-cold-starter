@@ -39,3 +39,8 @@ Try to start a new game without refreshing or reloading the page. Was running in
 
 - [jQuery on()](https://api.jquery.com/on/)
 - [jQuery click()](https://api.jquery.com/click/)
+
+## Solutions to Challenges
+
+- converted some of my anonymous functions that were set to variables to named functions. This prohibited them from firing on `$(document).ready`
+- removed the click event from the `userGuess()` function. Instead, I moved the click handler to be available on `$(document).ready` and bound the `userGuess()` function to it.

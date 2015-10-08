@@ -18,12 +18,12 @@ This project can be viewed at [http://somecallmejosh.github.io/hot-or-cold-start
   - [x] Too low
   - [x] Too High
   - [x] Correct Guess
-- [ ] Write a function that determines how far away from the number they are.
-  - [ ] 40+ away = `ice cold`
-  - [ ] 30-39 away = `cold`
-  - [ ] 20-29 away = `warm`
-  - [ ] 10-19 away = `hot`
-  - [ ] 1-9 away = `very hot`
+- [x] Write a function that determines how far away from the number they are.
+  - [x] 40+ away = `ice cold`
+  - [x] 30-39 away = `cold`
+  - [x] 20-29 away = `warm`
+  - [x] 10-19 away = `hot`
+  - [x] 1-9 away = `very hot`
 - [x] Append feedback information in `div#feedback`
 - [x] `div#feedback` is initally set to `Make Your Guess!` on page load
 - [x] Show how many guesses the player has made. Display this in `span#count`

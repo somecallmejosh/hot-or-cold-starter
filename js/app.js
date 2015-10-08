@@ -39,7 +39,9 @@ $(document).ready(function(){
       $("#userGuess").val("");
       $("#feedback").html("Make Your Guess!");
       $('#count').html("0");
+      // Not declaring randNumber as a 'var' puts this in Global Scope
       randNumber = randomNumber();
+      // probably not a good thing.
     }
 
     var newGame = function(){
@@ -67,7 +69,7 @@ $(document).ready(function(){
           $("<li>" + userGuessValue + "</li>").appendTo('#guessList');
           $('#count').html(userGuessCount++);
           formFocus(); 
-          feedbackContainer.html(accuracyFeedback(userGuessValue));
+          feedbackContainer.html(accuracyFeedback(userGuessValue) + "<br>" + temperatureFeedback(userGuessValue));
         } else {
           logThis("Please enter a number between 1 and 100");
           alert("Sorry, that didn't meet the number requirements. Please enter a number between 1 and 100.");
@@ -90,22 +92,22 @@ $(document).ready(function(){
     };
 
     var temperatureFeedback = function(guess){
-      // var absoluteValue = Math.abs(randNumber - guess);
-      // if (absoluteValue > 50) {
-      //   return "Ice Cold";
-      // } else if (absoluteValue > 40 ){
-      //   return "Cold";
-      // } else if (absolteValue > 30) {
-      //   return "Warm";
-      // } else if (absoluteValue > 20){
-      //   return "Hot";
-      // } else if (absoluteValue > 10) {
-      //   return "Very Hot";
-      // } else if (abolusteValue > 0) {
-      //   return "Burning Up!";
-      // } else {
-      //   return "On Fire!"
-      // }
+      var absoluteValue = Math.abs(randNumber - guess);
+      if (absoluteValue >= 50) {
+        return "Ice Cold";
+      } else if (absoluteValue >= 40 && absoluteValue < 50 ){
+        return "Cold";
+      } else if (absoluteValue >= 30 && absoluteValue < 40) {
+        return "Warm";
+      } else if (absoluteValue >= 20 && absoluteValue < 30) {
+        return "Hot";
+      } else if (absoluteValue >= 10 && absoluteValue < 20) {
+        return "Very Hot";
+      } else if (absoluteValue >=1 && absoluteValue < 10) {
+        return "Burning Up!";
+      } else {
+        return "On Fire!"
+      }
     };
 
     //---------------------------

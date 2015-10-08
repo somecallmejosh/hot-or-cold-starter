@@ -32,3 +32,10 @@ This project can be viewed at [http://somecallmejosh.github.io/hot-or-cold-start
 - [x] Validate user inputs by setting input type to number and "required".
 - [x] Validate an input range between 1 and 100.
 - [x] New game button should trigger the function that starts a new game.
+
+## Challenges
+
+Try to start a new game without refreshing or reloading the page. Was running into issues with the `userGuess()` function. My original thought was to simply `unbind()` the click handler. It solves the request, but it isn't the most performant way of going about things. Moving on to the docs:
+
+- [jQuery on()](https://api.jquery.com/on/)
+- [jQuery click()](https://api.jquery.com/click/)

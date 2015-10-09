@@ -15,8 +15,8 @@ $(document).ready(function(){
     //---------------------------
       var formFocus = function(){
         // set focus back to the input, for whatever reason.
-        $('#userGuess').val("").focus();
-      }
+        $("#userGuess").val("").focus();
+      };
 
     //---------------------------
     // Game Functions
@@ -25,12 +25,12 @@ $(document).ready(function(){
       $("#guessList").find("li").remove();
       $("#userGuess").val("");
       $("#feedback").html("Make Your Guess!");
-      $('#count').html("0");
+      $("#count").html("0");
       // Not declaring randNumber as a 'var' puts this in Global Scope
       randNumber = randomNumber();
       userGuessCount = 1;
       // probably not a good thing.
-    }
+    };
 
     var newGame = function(){
       // New Game on page load
@@ -44,15 +44,14 @@ $(document).ready(function(){
       return randomNumber;
     };
 
-
     function userGuess(){
-      var userGuessValue = parseInt($('#userGuess').val()),
+      var userGuessValue = parseInt($("#userGuess").val()),
           feedbackContainer = $("#feedback");
       if (userGuessValue > 0 && userGuessValue <= 100) {
-        $("<li>" + userGuessValue + "</li>").appendTo('#guessList');
+        $("<li>" + userGuessValue + "</li>").appendTo("#guessList");
         feedbackContainer.html(accuracyFeedback(userGuessValue) + "<br>" + temperatureFeedback(userGuessValue));
         formFocus();
-        $('#count').html(userGuessCount++);
+        $("#count").html(userGuessCount++);
       } else {
         alert("Sorry, that didn't meet the number requirements. Please enter a number between 1 and 100.");
         formFocus();
@@ -87,14 +86,15 @@ $(document).ready(function(){
         return "On Fire!"
       }
     };
+    
     //---------------------------
     // Game Instantiation
     //---------------------------
       newGame();
-      $('.new').on("click", function(){
+      $(".new").on("click", function(){
         newGame();
       });
-      $("#guessButton").click(userGuess);
+      $("#guessButton").on("click", userGuess);
 });
 
 

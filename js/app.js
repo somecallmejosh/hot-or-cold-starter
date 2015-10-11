@@ -70,20 +70,21 @@ $(document).ready(function(){
 
     var temperatureFeedback = function(guess){
       var absoluteValue = Math.abs(randNumber - guess);
-      if (absoluteValue >= 50) {
-        return "Ice Cold";
-      } else if (absoluteValue >= 40 && absoluteValue < 50 ){
-        return "Cold";
-      } else if (absoluteValue >= 30 && absoluteValue < 40) {
-        return "Warm";
-      } else if (absoluteValue >= 20 && absoluteValue < 30) {
-        return "Hot";
-      } else if (absoluteValue >= 10 && absoluteValue < 20) {
-        return "Very Hot";
-      } else if (absoluteValue >=1 && absoluteValue < 10) {
-        return "Burning Up!";
-      } else {
-        return "On Fire!"
+      switch(true) {
+        case absoluteValue >= 50:
+          return "Ice Cold";
+        case absoluteValue >= 40 && absoluteValue < 50:
+          return "Cold";
+        case absoluteValue >= 30 && absoluteValue < 40:
+          return "Warm";
+        case absoluteValue >= 20 && absoluteValue < 30:
+          return "Hot";
+        case absoluteValue >= 10 && absoluteValue < 20:
+          return "Very Hot";
+        case absoluteValue >= 1 && absoluteValue < 10:
+          return "Burning Up"
+        default:
+          return "On Fire!"
       }
     };
     
